@@ -1,0 +1,33 @@
+{% extends "drive/base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    {% for file in files %}
+<div class="col-sm-6 col-lg-4 py-2">
+           <div class="card h-100 driveBg ">
+          <div class="card-header driveBg ">
+            {{ file.uploaded_at }}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title ">{{ file.fileName }}</h5>
+            <p class="card-text ">{{ file.description }}</p>
+            <a class="btn btn-info" href="https://{{ buckName }}.s3.amazonaws.com/{{ file.file }}">Open</a>
+              <a class="btn btn-danger" href="{% url 'test1-delete' file.id %}">Delete</a>
+          </div>
+        </div>
+</div>
+    {% endfor %}
+</div>
+<!--{% endblock content %} <article class="media container">-->
+<!--&lt;!&ndash;          <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">&ndash;&gt;-->
+<!--          <div class="media-body">-->
+<!--            <div class="article-metadata">-->
+<!--&lt;!&ndash;              <a class="mr-2" href="#">{{ file.owner }}</a>&ndash;&gt;-->
+<!--              <small class="text-muted">{{ file.uploaded_at|date:"F d, Y" }}</small>-->
+<!--            </div>-->
+<!--              <h2>{{ file.fileName }}</h2>-->
+<!--            <h2><a class="article-title" href="https://{{ buckName }}.s3.amazonaws.com/{{ file.file }}">Open</a></h2>-->
+<!--&lt;!&ndash;            <p class="article-content">{{ file.file }}</p>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </article>-->

@@ -1,0 +1,16 @@
+{% extends "drive/base.html" %}
+{% block content %}
+        <article class="media content-section">
+<!--          <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">-->
+          <div class="media-body">
+            <div class="article-metadata">
+<!--              <a class="mr-2" href="#">{{ file.owner }}</a>-->
+              <small class="text-muted">{{ object.uploaded_at|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href={{ object.file }}>{{ object.fileName }}</a></h2>
+              <a href="http://docs.google.com/gview?url={{object.file}}">Open your doc file</a>
+            <h2>{{ object.description }}</h2>
+<!--            <p class="article-content">{{ file.file }}</p>-->
+          </div>
+        </article>
+{% endblock content %}v
