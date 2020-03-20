@@ -33,7 +33,7 @@ def model_form_upload(request):
     })
 
 
-class FileListView(ListView):
+class FileListView(LoginRequiredMixin, ListView):
     model = CloudFile
     template_name = 'drive/drive.html'
     context_object_name = 'files'
