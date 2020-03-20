@@ -1,0 +1,22 @@
+{% extends "drive/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container content-section driveBg mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        <filedset class = "form-group">
+            <legend class="border-bottom">Register</legend>
+            {{ form|crispy }}
+        </filedset>
+        <div class="form-group">
+            <button class="btn btn-info" type="submit" >Sign Up</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="" href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+
+</div>
+{% endblock %}
